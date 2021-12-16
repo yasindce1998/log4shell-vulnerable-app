@@ -4,7 +4,7 @@ WORKDIR /home/gradle/src
 RUN gradle bootJar --no-daemon
 
 
-FROM adoptopenjdk/openjdk8:aarch64-ubuntu-jdk8u312-b07-slim
+FROM openjdk8:aarch64-ubuntu-jdk8u312-b07-slim
 EXPOSE 8080
 RUN mkdir /app
 COPY --from=builder /home/gradle/src/build/libs/*.jar /app/spring-boot-application.jar
